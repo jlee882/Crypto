@@ -19,6 +19,8 @@ ciphertext = f.read()
 ciphertext = ciphertext.strip()
 ciphertext = ciphertext.upper()
 
+ciphertext_len = len(ciphertext)
+
 ciphertext_freq = {
     "A" : 0,
     "B" : 0,
@@ -50,6 +52,9 @@ ciphertext_freq = {
 
 for i in ciphertext:
     ciphertext_freq[i] += 1;
+
+for key in ciphertext_freq:
+    ciphertext_freq[key] = round(ciphertext_freq[key] / ciphertext_len, 3)
 
 ciphertext_freq = freq_sorter(ciphertext_freq)
 sorted_eng_freq = freq_sorter(eng_freq.frequency)
